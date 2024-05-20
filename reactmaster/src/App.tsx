@@ -60,6 +60,7 @@ body{
 a{
   // 하이퍼링크가 밑줄을 가지지 않음
   text-decoration: none;
+  color:inherit; // 하이퍼링크 색상 변경 x
 }
 `;
 
