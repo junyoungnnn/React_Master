@@ -58,9 +58,9 @@ body{
   color:${props => props.theme.textColor};
 }
 a{
-  // ÇÏÀÌÆÛ¸µÅ©°¡ ¹ØÁÙÀ» °¡ÁöÁö ¾ÊÀ½
+  // í•˜ì´í¼ë§í¬ê°€ ë°‘ì¤„ì„ ê°€ì§€ì§€ ì•ŠìŒ
   text-decoration: none;
-  color:inherit; // ÇÏÀÌÆÛ¸µÅ© »ö»ó º¯°æ x
+  color:inherit; // í•˜ì´í¼ë§í¬ ìƒ‰ìƒ ë³€ê²½ x
 }
 `;
 
