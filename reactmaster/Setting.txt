@@ -69,3 +69,7 @@ https://velog.io/@beatnik/Please-do-not-use-import-CSS-syntax-in-CreateGlobalSty
 
 폰트 변경
 i react-helmet-async 
+
+apexcharts
+https://apexcharts.com/
+npm install --save react-apexcharts apexcharts

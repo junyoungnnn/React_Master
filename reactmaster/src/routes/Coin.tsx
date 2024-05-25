@@ -12,6 +12,7 @@ import Price from "./Price";
 import Chart from "./Chart";
 import { useQuery } from "react-query";
 import { fetchCoinInfo, fetchCoinTickers } from "./api";
+import { Helmet } from "react-helmet-async";
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -169,7 +170,10 @@ function Coin() {
   );
   const { isLoading: tickersLoading, data: tickersData } = useQuery<IPriceData>(
     ["tickers", coinId],
-    () => fetchCoinTickers(coinId)
+    () => fetchCoinTickers(coinId),
+    {
+      refetchInterval: 5000, // 5s refetch
+    }
   );
   // useEffect(() => {
   //     (async () => {
@@ -185,10 +189,13 @@ function Coin() {
   const loading = infoLoading || tickersLoading;
   return (
     <Container>
-      <Header>
-        <Title>
+      <Helmet>
+        <title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
-        </Title>
+        </title>
+      </Helmet>
+      <Header>
+        <Title></Title>
       </Header>
       {loading ? (
         <Loader>Loading...</Loader>
@@ -204,8 +211,8 @@ function Coin() {
               <span>${infoData?.symbol}</span>
             </OverviewItem>
             <OverviewItem>
-              <span>Open Source:</span>
-              <span>{infoData?.open_source ? "yes" : "no"}</span>
+              <span>Price:</span>
+              <span>{tickersData?.quotes.USD.price}</span>
             </OverviewItem>
           </Overview>
           <Descripotion>{infoData?.description}</Descripotion>
@@ -234,7 +241,7 @@ function Coin() {
               <Price />
             </Route>
             <Route path={`/${coinId}/chart`}>
-              <Chart />
+              <Chart coinId={coinId} />
             </Route>
           </Switch>
         </>
