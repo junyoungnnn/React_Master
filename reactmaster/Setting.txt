@@ -73,3 +73,5 @@ i react-helmet-async
 apexcharts
 https://apexcharts.com/
 npm install --save react-apexcharts apexcharts
+
+r>npm install recoil
