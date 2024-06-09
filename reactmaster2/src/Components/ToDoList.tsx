@@ -1,6 +1,6 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import CreateTodo from "./CreateToDo";
-import { categoryState, toDoSelector, toDoState } from "../atoms";
+import { Categories, categoryState, toDoSelector, toDoState } from "../atoms";
 import ToDo from "./ToDo";
 
 function ToDoList() {
@@ -16,9 +16,9 @@ function ToDoList() {
       <hr />
       <form>
         <select value={category} onInput={onInput}>
-          <option value="TO_DO">To Do</option>
-          <option value="DOING">Doing</option>
-          <option value="DONE">Done</option>
+          <option value={Categories.TO_DO}>To Do</option>
+          <option value={Categories.DOING}>Doing</option>
+          <option value={Categories.DONE}>Done</option>
         </select>
       </form>
       <CreateTodo />
