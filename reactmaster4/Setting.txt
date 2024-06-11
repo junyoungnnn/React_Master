@@ -1,0 +1,79 @@
+#타입스크립트로 react 새로 설치
+npx create-react-app 내 앱 이름 --template typescript
+npm i --save-dev @types/styled-components
+npm i styled-components
+
+#기존 리엑트 프로젝트에 타입스크립트를 추가하기
+1. npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+2. src 폴더 안에 있던 App.js와 index.js 파일을 App.tsx와 index.tsx 로 바꾼다.
+3. "npx tsc --init" 명령어로 tsconfig.json 파일 생성한 후, tsconfig.json 파일에 "jsx": "react-jsx"추가
+-------------------------------------------
+{
+"compilerOptions": {
+......
+"jsx": "react-jsx"
+}
+}
+-------------------------------------------
+4. src/index.tsx에서 수정
+--------------------------------------------------------------
+import ReactDOM from "react-dom/client"
+
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+---------------------------------------------------------------
+5. npm i --save-dev @types/styled-components
+
+OR
+
+npx 설치 하지 않고 npm 추가 했을 때 에러 해결 방법 정리해보았습니다.
+
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+
+에러 1) Module not found: Error: Can't resolve
+1. tsc --init (tsconfig.json 생성 - 타입 스크립트 환경 설정 파일)
+2. tsconfig.json 내부 수정
+2-1. "compilerOptions": {} 내부 "jsx": "preserve" 부분 주석 해제 (jsx 코드를 유지하며 .jsx 파일로 컴파일)
+2-2. "compilerOptions": {} 바로 밑에 "include": ["src"], 추가 (ts -> js 컴파일 대상 파일)
+
+에러 2) const root = ReactDOM.createRoot(document.getElementById("root"));
+> const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+
+에러 3) styled-components 에러
+1. npm i --save-dev @types/styled-components
+2. npm 설치 후 에러 계속 발생 시 에러 1)이 발생하지 않았는지 확인.
+3. node_module, package-lock.json 삭제후 npm install 로 재설치
+4. npm install typescript@4.9.5 버전 변경 후 npm i @types/styled-components
+
+
+npm i react-router-dom@5.3.4
+npm i react-query
+npm i --save-dev @types/react-router-dom
+
+
+
+Reset CSS
+https://github.com/zacanger/styled-reset/blob/master/src/index.ts
+
+Google Fonts
+https://fonts.google.com
+
+팔레트
+Flat UI Color
+https://flatuicolors.com/palette/gb
+
+?? Please do not use @import
+→ CSSOM APIs에서 @import 구문을 잘 처리하지 못해 사용하지 않는걸 권장
+
+? 해결법
+https://velog.io/@beatnik/Please-do-not-use-import-CSS-syntax-in-CreateGlobalStyle
+
+폰트 변경
+i react-helmet-async 
+
+apexcharts
+https://apexcharts.com/
+npm install --save react-apexcharts apexcharts
+
+r>npm install recoil
+
+npm install react-hock-form  
